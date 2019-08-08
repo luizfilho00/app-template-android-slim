@@ -1,5 +1,9 @@
 package com.facom.facomemfoco.data.remote.client
 
+import com.facom.facomemfoco.data.storage.PreferencesCache.get
+import com.facom.facomemfoco.data.storage.PreferencesCache.set
+import com.facom.facomemfoco.domain.boundary.resources.Cache
+import com.facom.facomemfoco.domain.entity.User
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -10,7 +14,7 @@ class AuthInterceptor : Interceptor {
         const val HEADER_EMAIL = "USER-EMAIL"
     }
 
-    private var user: com.facom.facomemfoco.domain.entity.User? = null
+    private var user: User? = null
 
     override fun intercept(chain: Interceptor.Chain): Response {
 //        user = GetCurrentUser().execute()
@@ -19,13 +23,13 @@ class AuthInterceptor : Interceptor {
             try {
                 requestBuilder.addHeader(HEADER_TOKEN, getTokenFromCache())
                 requestBuilder.addHeader(HEADER_EMAIL, getClientFromCache())
-            } catch (e: com.facom.facomemfoco.domain.boundary.resources.Cache.NotFoundException) {
+            } catch (e: Cache.NotFoundException) {
                 // user is not logged in
             }
         }
         val response = chain.proceed(requestBuilder.build())
-        response.headers().get(HEADER_TOKEN)?.let { com.facom.facomemfoco.data.storage.PreferencesCache.set(HEADER_TOKEN, it) }
-        response.headers().get(HEADER_EMAIL)?.let { com.facom.facomemfoco.data.storage.PreferencesCache.set(HEADER_EMAIL, it) }
+        response.headers().get(HEADER_TOKEN)?.let { set(HEADER_TOKEN, it) }
+        response.headers().get(HEADER_EMAIL)?.let { set(HEADER_EMAIL, it) }
 
         return response
     }
@@ -34,13 +38,13 @@ class AuthInterceptor : Interceptor {
         getTokenFromCache()
         getClientFromCache()
         true
-    } catch (e: com.facom.facomemfoco.domain.boundary.resources.Cache.NotFoundException) {
+    } catch (e: Cache.NotFoundException) {
         false
     }
 
     private fun getTokenFromCache() =
-            com.facom.facomemfoco.data.storage.PreferencesCache.get<String>(HEADER_TOKEN, String::class.java)
+            get<String>(HEADER_TOKEN, String::class.java)
 
     private fun getClientFromCache() =
-            com.facom.facomemfoco.data.storage.PreferencesCache.get<String>(HEADER_EMAIL, String::class.java)
+            get<String>(HEADER_EMAIL, String::class.java)
 }

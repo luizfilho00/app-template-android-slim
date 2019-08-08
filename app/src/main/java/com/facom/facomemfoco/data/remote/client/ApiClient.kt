@@ -1,6 +1,7 @@
 package com.facom.facomemfoco.data.remote.client
 
 import com.facom.facomemfoco.BuildConfig
+import com.facom.facomemfoco.data.remote.entity.ApiUser
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import io.reactivex.Completable
@@ -31,15 +32,15 @@ object ApiClient {
         get() = apiServiceSingleton
                 ?: buildApiServices()
 
-    fun signIn(email: String, password: String, token: String?): Single<com.facom.facomemfoco.data.remote.entity.ApiUser> {
+    fun signIn(email: String, password: String, token: String?): Single<ApiUser> {
         return makeRequest(ApiClient.apiServices.signIn(email, password, token, ApiClient.PLATFORM_CONSTANT))
     }
 
-    fun signInWithFacebook(accessToken: String): Single<com.facom.facomemfoco.data.remote.entity.ApiUser> {
+    fun signInWithFacebook(accessToken: String): Single<ApiUser> {
         return makeRequest(ApiClient.apiServices.signInWithFacebook(accessToken))
     }
 
-    fun signUp(fields: HashMap<String, String?>): Single<com.facom.facomemfoco.data.remote.entity.ApiUser> {
+    fun signUp(fields: HashMap<String, String?>): Single<ApiUser> {
         return Single.just(fields).map { buildSignUpMultipartBody(it.toMap()) }
                 .flatMap { makeRequest(ApiClient.apiServices.signUp(it)) }
     }
