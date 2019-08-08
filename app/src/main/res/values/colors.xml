@@ -18,9 +18,9 @@
 
     <!-- attributes -->
 
-    <color name="primary">@color/blue</color>
-    <color name="primary_dark">@color/blue_dark</color>
-    <color name="accent">@color/pink</color>
+    <color name="primary">#0088b7</color>
+    <color name="primaryDark">#007ba5</color>
+    <color name="accent">#0088B7</color>
     <color name="controlNormal">@color/black_alpha30</color>
     <color name="controlNormalLogin">@color/white</color>
     <color name="colorLightTextPrimary">@color/white</color>

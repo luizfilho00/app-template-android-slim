@@ -22,8 +22,10 @@ class SplashActivity : BaseActivity() {
 
     override fun subscribeUi() {
         super.subscribeUi()
-        viewModel.goToMain.observe(this, ::onNextGoToMainValue)
-        viewModel.goToLogin.observe(this, ::onNextGoToLoginValue)
+        with(viewModel) {
+            goToMain.observe(this@SplashActivity, ::onNextGoToMainValue)
+            goToLogin.observe(this@SplashActivity, ::onNextGoToLoginValue)
+        }
     }
 
     private fun onNextGoToMainValue(shouldGo: Boolean?) {

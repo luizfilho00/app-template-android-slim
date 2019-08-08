@@ -1,8 +1,8 @@
 package com.facom.facomemfoco.presentation.structure.navigation
 
 import android.content.Context
-import com.facom.facomemfoco.presentation.dashboard.MainActivity
 import com.facom.facomemfoco.presentation.login.LoginActivity
+import com.facom.facomemfoco.presentation.main.MainActivity
 import com.facom.facomemfoco.presentation.util.extensions.shouldClearTask
 
 object Navigator {

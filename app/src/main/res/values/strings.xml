@@ -50,4 +50,17 @@
     <string name="global_send">Enviar</string>
     <string name="global_pick_avatar_using">Escolher imagem usando:</string>
     <string name="activity_sign_up">Criar Conta</string>
+
+    <!-- Global -->
+    <string name="global_action_bar_title">Facom em Foco</string>
+    <string name="global_action_search">Pesquisar</string>
+
+    <!-- Activity Main -->
+    <string name="activity_main_for_you">Para você</string>
+    <string name="activity_main_all">Todas</string>
+    <string name="activity_main_your_posts">Seus Posts</string>
+    <string name="activity_main_more">Mais</string>
+
+    <!-- Fragment Notices For You -->
+    <string name="fragment_title_for_you">Notícias para você</string>
 </resources>
