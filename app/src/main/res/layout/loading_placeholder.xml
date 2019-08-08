@@ -7,7 +7,7 @@
 
         <variable
             name="placeholder"
-            type="br.com.melgarejo.apptemplateslim.presentation.util.viewmodels.Placeholder" />
+            type="com.facom.facomemfoco.presentation.util.viewmodels.Placeholder" />
     </data>
 
     <LinearLayout

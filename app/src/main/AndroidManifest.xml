@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="br.com.melgarejo.apptemplateslim">
+    package="com.facom.facomemfoco">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:name=".presentation.AppTemplateSlimApplication"
+        android:name="com.facom.facomemfoco.presentation.AppTemplateSlimApplication"
         android:allowBackup="true"
         android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
@@ -19,7 +19,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name=".presentation.landing.SplashActivity"
+            android:name="com.facom.facomemfoco.presentation.landing.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionbar.Splash">
@@ -31,25 +31,25 @@
         </activity>
 
         <activity
-            android:name=".presentation.dashboard.MainActivity"
+            android:name="com.facom.facomemfoco.presentation.dashboard.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionbar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".presentation.login.LoginActivity"
+            android:name="com.facom.facomemfoco.presentation.login.LoginActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionbar.TranslucentStatusBar.Login"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".presentation.password.RecoverPasswordActivity"
+            android:name="com.facom.facomemfoco.presentation.password.RecoverPasswordActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/activity_recover_password"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.signup.SignUpActivity"
+            android:name="com.facom.facomemfoco.presentation.signup.SignUpActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/activity_sign_up"
             android:screenOrientation="portrait" />
