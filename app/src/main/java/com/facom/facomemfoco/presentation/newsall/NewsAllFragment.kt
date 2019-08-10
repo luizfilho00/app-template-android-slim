@@ -10,13 +10,12 @@ import com.facom.facomemfoco.R
 import com.facom.facomemfoco.databinding.FragmentNewsAllBinding
 import com.facom.facomemfoco.presentation.main.MainActivity
 import com.facom.facomemfoco.presentation.structure.base.BaseFragment
-import com.facom.facomemfoco.presentation.structure.base.BaseViewModel
 import com.facom.facomemfoco.presentation.structure.sl.ServiceLocator
 
 class NewsAllFragment : BaseFragment() {
 
     override val sl: ServiceLocator get() = ServiceLocator.getInstance(context!!.applicationContext)
-    private lateinit var viewModel: BaseViewModel
+    private lateinit var viewModel: NewsAllViewModel
     private lateinit var binding: FragmentNewsAllBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

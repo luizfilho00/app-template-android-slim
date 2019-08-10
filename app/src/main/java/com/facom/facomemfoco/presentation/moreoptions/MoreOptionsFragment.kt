@@ -11,13 +11,15 @@ import com.facom.facomemfoco.R
 import com.facom.facomemfoco.databinding.FragmentMoreOptionsBinding
 import com.facom.facomemfoco.presentation.main.MainActivity
 import com.facom.facomemfoco.presentation.structure.base.BaseFragment
-import com.facom.facomemfoco.presentation.structure.base.BaseViewModel
 import com.facom.facomemfoco.presentation.structure.sl.ServiceLocator
+import com.facom.facomemfoco.presentation.util.extensions.observeEvent
+import com.facom.facomemfoco.presentation.util.extensions.onClickListener
 
 class MoreOptionsFragment : BaseFragment() {
 
     override val sl: ServiceLocator get() = ServiceLocator.getInstance(context!!.applicationContext)
-    private lateinit var viewModel: BaseViewModel
+
+    private lateinit var viewModel: MoreOptionsViewModel
     private lateinit var binding: FragmentMoreOptionsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +32,7 @@ class MoreOptionsFragment : BaseFragment() {
         binding = FragmentMoreOptionsBinding.inflate(inflater, container, false)
         lifecycle.addObserver(viewModel)
         setupActionBar()
+        subscribeUi()
         setupUi()
         return binding.root
     }
@@ -39,12 +42,20 @@ class MoreOptionsFragment : BaseFragment() {
         super.onPrepareOptionsMenu(menu)
     }
 
+    private fun subscribeUi() {
+        with(viewModel) {
+            goToAbout.observeEvent(this@MoreOptionsFragment, ::onGoTo)
+        }
+    }
+
     private fun setupActionBar() {
         (activity as? MainActivity)?.supportActionBar?.title = getString(R.string.fragment_more_options_title)
     }
 
     private fun setupUi() {
-        //TODO
+        with(binding) {
+            buttonAbout.onClickListener(viewModel::goToAbout)
+        }
     }
 
     companion object {

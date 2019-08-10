@@ -14,6 +14,7 @@ import com.facom.facomemfoco.domain.interactor.user.GetPersistedUser
 import com.facom.facomemfoco.domain.interactor.user.RecoverPassword
 import com.facom.facomemfoco.domain.interactor.user.SignIn
 import com.facom.facomemfoco.domain.interactor.user.SignUp
+import com.facom.facomemfoco.presentation.about.AboutViewModel
 import com.facom.facomemfoco.presentation.landing.SplashViewModel
 import com.facom.facomemfoco.presentation.login.LoginViewModel
 import com.facom.facomemfoco.presentation.main.MainViewModel
@@ -92,6 +93,7 @@ class DefaultServiceLocator(private val context: Context) : ServiceLocator {
             SplashViewModel::class.java -> SplashViewModel(get(GetPersistedUser::class.java))
             LoginViewModel::class.java -> LoginViewModel(get(SignIn::class.java), schedulerProvider)
             MainViewModel::class.java -> MainViewModel(schedulerProvider)
+            AboutViewModel::class.java -> AboutViewModel(schedulerProvider)
             MoreOptionsViewModel::class.java -> MoreOptionsViewModel(schedulerProvider)
             NewsForYouViewModel::class.java -> NewsForYouViewModel(schedulerProvider)
             NewsAllViewModel::class.java -> NewsAllViewModel(schedulerProvider)

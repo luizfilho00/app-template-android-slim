@@ -62,6 +62,10 @@ fun View.setOnClickListener(callback: () -> Unit) {
     this.setOnClickListener { callback.invoke() }
 }
 
+fun View.onClickListener(callback: () -> Unit) {
+    this.setOnClickListener { callback.invoke() }
+}
+
 // views
 
 fun View.setVisible(visible: Boolean) {

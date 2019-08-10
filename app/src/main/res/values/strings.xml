@@ -61,6 +61,10 @@
     <string name="activity_main_your_posts">Seus Posts</string>
     <string name="activity_main_more">Mais</string>
 
+    <!-- Activity About -->
+    <string name="activity_about_title">Sobre o aplicativo</string>
+    <string name="activity_about_full_text">O Facom em Foco é um aplicativo para dispositivos móveis Android desenvolvido por alunos de Engenharia de Software, cujo objetivo é permitir que professores possam transmitir facilmente informações para alunos da Facom.</string>
+
     <!-- Fragment News For You -->
     <string name="fragment_for_you_title">Notícias para você</string>
 
@@ -71,6 +75,5 @@
     <string name="fragment_more_options_title">Mais</string>
     <string name="fragment_more_options_interest_tags">Suas tags de interesse</string>
     <string name="fragment_more_options_login_as_teacher">Logar como professor</string>
-    <string name="fragment_more_options_about">Sobre o aplicativo</string>
     <string name="fragment_more_options_help">Ajuda</string>
 </resources>
