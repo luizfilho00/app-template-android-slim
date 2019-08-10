@@ -45,6 +45,7 @@ class MoreOptionsFragment : BaseFragment() {
     private fun subscribeUi() {
         with(viewModel) {
             goToAbout.observeEvent(this@MoreOptionsFragment, ::onGoTo)
+            goToHelp.observeEvent(this@MoreOptionsFragment, ::onGoTo)
         }
     }
 
@@ -55,6 +56,7 @@ class MoreOptionsFragment : BaseFragment() {
     private fun setupUi() {
         with(binding) {
             buttonAbout.onClickListener(viewModel::goToAbout)
+            buttonHelp.onClickListener(viewModel::goToHelp)
         }
     }
 

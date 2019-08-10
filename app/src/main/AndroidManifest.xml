@@ -57,8 +57,13 @@
             android:name="com.facom.facomemfoco.presentation.about.AboutActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/activity_sign_up"
-            android:theme="@style/AppTheme.NoActionbar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionbar" />
+        <activity
+            android:name="com.facom.facomemfoco.presentation.help.HelpActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/activity_sign_up"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionbar" />
     </application>
-
 </manifest>

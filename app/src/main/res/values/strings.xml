@@ -65,6 +65,17 @@
     <string name="activity_about_title">Sobre o aplicativo</string>
     <string name="activity_about_full_text">O Facom em Foco é um aplicativo para dispositivos móveis Android desenvolvido por alunos de Engenharia de Software, cujo objetivo é permitir que professores possam transmitir facilmente informações para alunos da Facom.</string>
 
+    <!-- Activity Help -->
+    <string name="activity_help_title">Ajuda</string>
+    <string name="activity_help_introduction_title">Ajuda</string>
+    <string name="activity_help_introduction_text">As informações são publicadas em forma de pequenas notícias que possuem até 280 caracteres, um link, uma imagem e algumas tags. O usuário pode escolher de quais tags quer receber notificações. O App pode ser utilizado sem login. Somente professores possuem nome de usuário e senha.</string>
+    <string name="activity_help_tags_title">Tags</string>
+    <string name="activity_help_tags_text">Representam um grupo de notícias de um determinado tipo. As tags são (CC, EC, ES, SI, TADS, TRC, IC, Estágio, TCC, Evento, Palestra, Monitoria, Concurso, Prova e Pós-Graduação). O usuário pode escolher de quais tags quer receber notificações.</string>
+    <string name="activity_help_login_title">Login</string>
+    <string name="activity_help_login_text">Apenas professores cadastrados podem realizar login.  Quando ele está logado, uma nova opção aparece “Seus posts”, onde serão listados todos os posts realizados pelo professor logado e um botão (+) que permite a criação de uma nova notícia</string>
+    <string name="activity_help_news_title">Criar Notícia</string>
+    <string name="activity_help_news_text">Uma notícia deve obrigatoriamente ter um título e deve ter ao menos uma descrição, link ou imagem. Ela também deve ter obrigatoriamente uma tag de interesse. Somentes usuários logados podem criar uma notícia.</string>
+
     <!-- Fragment News For You -->
     <string name="fragment_for_you_title">Notícias para você</string>
 

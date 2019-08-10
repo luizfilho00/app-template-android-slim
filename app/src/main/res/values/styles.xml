@@ -73,10 +73,22 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="NormalDarkGrayText" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/colorDarkGray</item>
+    </style>
+
     <style name="LargeDarkGrayText" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textColor">@color/colorDarkGray</item>
     </style>
 
+    <style name="BigBoldDarkGrayText" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorDarkGray</item>
+    </style>
 </resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/included_toolbar"
+            layout="@layout/toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin">
+
+                <TextView
+                    style="@style/BigBoldDarkGrayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/activity_help_introduction_title" />
+
+                <TextView
+                    style="@style/NormalDarkGrayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:justificationMode="inter_word"
+                    android:text="@string/activity_help_introduction_text"
+                    tools:targetApi="o" />
+
+                <TextView
+                    style="@style/BigBoldDarkGrayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/activity_help_tags_title" />
+
+                <TextView
+                    style="@style/NormalDarkGrayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:justificationMode="inter_word"
+                    android:text="@string/activity_help_tags_text"
+                    tools:targetApi="o" />
+
+                <TextView
+                    style="@style/BigBoldDarkGrayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/activity_help_login_title" />
+
+                <TextView
+                    style="@style/NormalDarkGrayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:justificationMode="inter_word"
+                    android:text="@string/activity_help_login_text"
+                    tools:targetApi="o" />
+
+                <TextView
+                    style="@style/BigBoldDarkGrayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/activity_help_news_title" />
+
+                <TextView
+                    style="@style/NormalDarkGrayText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:justificationMode="inter_word"
+                    android:text="@string/activity_help_news_text"
+                    tools:targetApi="o" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>
