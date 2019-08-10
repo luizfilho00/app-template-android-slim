@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border_white_rounded"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonTag"
+            style="@style/ButtonBorderlessStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/white"
+            android:drawableStart="@drawable/ic_action_tags"
+            android:drawablePadding="15dp"
+            android:text="@string/fragment_more_options_interest_tags"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            style="@style/ButtonBorderlessStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/white"
+            android:drawableStart="@drawable/ic_action_login"
+            android:drawablePadding="15dp"
+            android:text="@string/fragment_more_options_login_as_teacher" />
+
+        <Button
+            android:id="@+id/buttonInfo"
+            style="@style/ButtonBorderlessStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/white"
+            android:drawableStart="@drawable/ic_action_inf"
+            android:drawablePadding="15dp"
+            android:text="@string/fragment_more_options_about" />
+
+
+        <Button
+            android:id="@+id/buttonHelp"
+            style="@style/ButtonBorderlessStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/white"
+            android:drawableStart="@drawable/ic_action_ajuda"
+            android:drawablePadding="15dp"
+            android:text="@string/fragment_more_options_help" />
+    </LinearLayout>
+</layout>

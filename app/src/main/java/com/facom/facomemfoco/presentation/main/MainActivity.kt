@@ -9,12 +9,20 @@ import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import com.facom.facomemfoco.R
 import com.facom.facomemfoco.databinding.ActivityMainBinding
+import com.facom.facomemfoco.presentation.moreoptions.MoreOptionsFragment
+import com.facom.facomemfoco.presentation.moreoptions.MoreOptionsFragmentType
+import com.facom.facomemfoco.presentation.newsall.NewsAllFragment
+import com.facom.facomemfoco.presentation.newsall.NewsAllFragmentType
+import com.facom.facomemfoco.presentation.newsforyou.NewsForYouFragment
+import com.facom.facomemfoco.presentation.newsforyou.NewsForYouFragmentType
 import com.facom.facomemfoco.presentation.structure.base.BaseActivity
+import com.facom.facomemfoco.presentation.structure.base.BaseFragment
 import com.facom.facomemfoco.presentation.structure.base.BaseViewModel
+import com.facom.facomemfoco.presentation.structure.navigation.FragmentType
 import com.facom.facomemfoco.presentation.structure.sl.ServiceLocator
-import com.facom.facomemfoco.presentation.util.extensions.longToast
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
     override val sl: ServiceLocator get() = ServiceLocator.getInstance(this.applicationContext)
     override val baseViewModel: BaseViewModel get() = viewModel
@@ -25,10 +33,11 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         viewModel = sl.get(MainViewModel::class.java)
         lifecycle.addObserver(viewModel)
+        super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setupUi()
-        setupActionBar()
-        super.onCreate(savedInstanceState)
+        /** Initial fragment **/
+        resolveFragment(NewsForYouFragmentType())
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -48,19 +57,40 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.navigation_for_you -> resolveFragment(NewsForYouFragmentType())
+            R.id.navigation_all -> resolveFragment(NewsAllFragmentType())
+            R.id.navigation_more_options -> resolveFragment(MoreOptionsFragmentType())
+        }
+        return true
+    }
+
     private fun setupUi() {
-        //TODO
+        with(binding) {
+            bottomNavigationMenu.setOnNavigationItemSelectedListener(this@MainActivity)
+        }
+    }
+
+    private fun resolveFragment(tag: FragmentType) {
+        when (tag.retrieveFragment()) {
+            is MoreOptionsFragment -> showFragment(MoreOptionsFragment())
+            is NewsForYouFragment -> showFragment(NewsForYouFragment())
+            is NewsAllFragment -> showFragment(NewsAllFragment())
+        }
+    }
+
+    private fun showFragment(baseFragment: BaseFragment) {
+        supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                .replace(R.id.fragment_holder, baseFragment)
+                .commit()
     }
 
     private fun openSearchField(searchView: SearchView?) {
         searchView?.run {
             //TODO pegar texto e fazer busca na api (:
-        }
-    }
-
-    private fun setupActionBar() {
-        supportActionBar?.run {
-            title = getString(R.string.global_action_bar_title)
         }
     }
 

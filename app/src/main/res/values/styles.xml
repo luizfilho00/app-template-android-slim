@@ -60,4 +60,17 @@
         <item name="android:textColor">@color/colorLightTextPrimary</item>
     </style>
 
+    <style name="ButtonBorderlessStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorDarkGray</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textAlignment">viewStart</item>
+
+    </style>
+
+    <style name="TextViewBold" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorDarkGray</item>
+    </style>
+
 </resources>

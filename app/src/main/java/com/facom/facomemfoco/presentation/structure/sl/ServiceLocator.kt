@@ -4,6 +4,7 @@ package com.facom.facomemfoco.presentation.structure.sl
 
 import android.content.Context
 import com.facom.facomemfoco.data.remote.repository.DefaultUserRepository
+import com.facom.facomemfoco.data.storage.PreferencesCache
 import com.facom.facomemfoco.domain.boundary.UserRepository
 import com.facom.facomemfoco.domain.boundary.resources.Cache
 import com.facom.facomemfoco.domain.boundary.resources.Logger
@@ -16,6 +17,9 @@ import com.facom.facomemfoco.domain.interactor.user.SignUp
 import com.facom.facomemfoco.presentation.landing.SplashViewModel
 import com.facom.facomemfoco.presentation.login.LoginViewModel
 import com.facom.facomemfoco.presentation.main.MainViewModel
+import com.facom.facomemfoco.presentation.moreoptions.MoreOptionsViewModel
+import com.facom.facomemfoco.presentation.newsall.NewsAllViewModel
+import com.facom.facomemfoco.presentation.newsforyou.NewsForYouViewModel
 import com.facom.facomemfoco.presentation.password.RecoverPasswordViewModel
 import com.facom.facomemfoco.presentation.signup.SignUpViewModel
 import com.facom.facomemfoco.presentation.util.ErrorHandler
@@ -49,7 +53,7 @@ class DefaultServiceLocator(private val context: Context) : ServiceLocator {
 
     override val cache: Cache
         get() = singletonCache
-                ?: com.facom.facomemfoco.data.storage.PreferencesCache.init(context).also { singletonCache = it }
+                ?: PreferencesCache.init(context).also { singletonCache = it }
 
     override val logger: Logger by lazy { AndroidLogger(context) }
 
@@ -88,6 +92,9 @@ class DefaultServiceLocator(private val context: Context) : ServiceLocator {
             SplashViewModel::class.java -> SplashViewModel(get(GetPersistedUser::class.java))
             LoginViewModel::class.java -> LoginViewModel(get(SignIn::class.java), schedulerProvider)
             MainViewModel::class.java -> MainViewModel(schedulerProvider)
+            MoreOptionsViewModel::class.java -> MoreOptionsViewModel(schedulerProvider)
+            NewsForYouViewModel::class.java -> NewsForYouViewModel(schedulerProvider)
+            NewsAllViewModel::class.java -> NewsAllViewModel(schedulerProvider)
             RecoverPasswordViewModel::class.java -> RecoverPasswordViewModel(
                     get(RecoverPassword::class.java),
                     schedulerProvider,

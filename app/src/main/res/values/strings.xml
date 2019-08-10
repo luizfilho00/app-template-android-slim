@@ -61,6 +61,16 @@
     <string name="activity_main_your_posts">Seus Posts</string>
     <string name="activity_main_more">Mais</string>
 
-    <!-- Fragment Notices For You -->
-    <string name="fragment_title_for_you">Notícias para você</string>
+    <!-- Fragment News For You -->
+    <string name="fragment_for_you_title">Notícias para você</string>
+
+    <!-- Fragment News For All -->
+    <string name="fragment_news_all_title">Notícias Facom</string>
+
+    <!-- Fragment More Options -->
+    <string name="fragment_more_options_title">Mais</string>
+    <string name="fragment_more_options_interest_tags">Suas tags de interesse</string>
+    <string name="fragment_more_options_login_as_teacher">Logar como professor</string>
+    <string name="fragment_more_options_about">Sobre o aplicativo</string>
+    <string name="fragment_more_options_help">Ajuda</string>
 </resources>

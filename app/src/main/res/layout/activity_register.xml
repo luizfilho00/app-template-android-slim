@@ -22,7 +22,7 @@
                     android:id="@+id/upload_image"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginTop="@dimen/activity_vertical_small_margin"
                     android:background="@drawable/shape_bg_avatar"
                     android:scaleType="center"
                     app:srcCompat="@drawable/ic_add_photo_32dp_white" />
@@ -153,7 +153,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_small_margin"
                     android:text="@string/activity_register_submit" />
 
             </LinearLayout>
