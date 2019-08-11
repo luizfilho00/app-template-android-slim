@@ -46,7 +46,7 @@ class InterestTagsActivity : BaseActivity() {
     }
 
     private fun setupAdapter() {
-        adapter = InterestTagsAdapter(viewModel::onTagSelected)
+        adapter = InterestTagsAdapter(viewModel::onTagClicked)
     }
 
     private fun setupRecyclerView() {

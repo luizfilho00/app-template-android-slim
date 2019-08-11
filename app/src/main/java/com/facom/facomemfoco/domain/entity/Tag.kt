@@ -4,5 +4,5 @@ data class Tag(
         var name: String? = null,
         var id: Int? = null,
         var position: Int? = null,
-        var selected: Boolean? = null
+        var selected: Boolean = false
 )

@@ -17,6 +17,7 @@ class InterestTagsAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val tag = items[position]
+        tag.position = position
         (holder as? InterestTagsViewHolder)?.setupBinding(tag)
     }
 

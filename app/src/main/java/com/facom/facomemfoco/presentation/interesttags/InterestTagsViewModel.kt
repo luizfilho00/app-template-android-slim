@@ -1,6 +1,5 @@
 package com.facom.facomemfoco.presentation.interesttags
 
-import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -22,6 +21,7 @@ class InterestTagsViewModel(
     val listTagsLiveData: LiveData<Event<List<Tag>>> get() = _listTagsLiveData
 
     private val _listTagsLiveData: MutableLiveData<Event<List<Tag>>> = MutableLiveData()
+    private var selectedTags: MutableList<Tag> = mutableListOf()
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     private fun onCreate() {
@@ -32,8 +32,12 @@ class InterestTagsViewModel(
                 .let(disposables::add)
     }
 
-    fun onTagSelected(tag: Tag) {
-        Log.d("TAG", tag.name)
+    fun onTagClicked(tag: Tag) {
+        if (tag.selected) {
+            selectedTags.add(tag)
+        } else {
+            selectedTags.remove(tag)
+        }
     }
 
     private fun onTagsReceived(tags: List<Tag>) {
