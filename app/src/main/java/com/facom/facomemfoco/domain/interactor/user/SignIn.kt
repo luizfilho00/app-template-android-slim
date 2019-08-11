@@ -6,10 +6,10 @@ import io.reactivex.Single
 
 class SignIn(private val repository: UserRepository) {
 
-    fun default(email: String, password: String, token: String?): Single<User> {
-        return Single.just(FormFields().withEmail(email).withPassword(password))
+    fun default(username: String, password: String, token: String?): Single<User> {
+        return Single.just(FormFields().withUsername(username).withPassword(password))
                 .doOnSuccess { formFields -> if (!formFields.isValid) throw formFields.exception }
-                .flatMap { repository.signIn(email, password, token) }
+                .flatMap { repository.signIn(username, password, token) }
                 .doAfterSuccess { repository.cacheUser(it) }
     }
 }

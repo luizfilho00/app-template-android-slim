@@ -65,5 +65,11 @@
             android:label="@string/activity_sign_up"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionbar" />
+        <activity
+            android:name="com.facom.facomemfoco.presentation.interesttags.InterestTagsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/activity_sign_up"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionbar" />
     </application>
 </manifest>

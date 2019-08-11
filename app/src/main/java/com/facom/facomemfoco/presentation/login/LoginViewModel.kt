@@ -7,8 +7,6 @@ import com.facom.facomemfoco.domain.extensions.defaultSched
 import com.facom.facomemfoco.domain.interactor.user.InvalidFieldsException
 import com.facom.facomemfoco.domain.interactor.user.LoginForm
 import com.facom.facomemfoco.domain.interactor.user.SignIn
-import com.facom.facomemfoco.presentation.password.RecoverPasswordNavData
-import com.facom.facomemfoco.presentation.signup.SignUpNavData
 import com.facom.facomemfoco.presentation.structure.base.BaseViewModel
 import com.facom.facomemfoco.presentation.util.extensions.defaultPlaceholders
 import io.reactivex.disposables.Disposable
@@ -19,11 +17,11 @@ class LoginViewModel(
         private val schedulerProvider: SchedulerProvider
 ) : BaseViewModel() {
 
-    val showEmailFieldError: LiveData<Boolean> get() = showEmailFieldErrorLiveData
+    val showUsernameFieldError: LiveData<Boolean> get() = showUsernameFieldErrorLiveData
     val showPasswordFieldError: LiveData<Boolean> get() = showPasswordFieldErrorLiveData
     val goToMain: LiveData<Boolean> get() = goToMainLiveData
 
-    private val showEmailFieldErrorLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    private val showUsernameFieldErrorLiveData: MutableLiveData<Boolean> = MutableLiveData()
     private val showPasswordFieldErrorLiveData: MutableLiveData<Boolean> = MutableLiveData()
     private val goToMainLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
@@ -31,37 +29,25 @@ class LoginViewModel(
     private var signInDisposable: Disposable? = null
 
 
-    fun onEmailChanged(email: String) {
-        form.email = email
+    fun onUsernameChanged(username: String) {
+        form.username = username
     }
 
     fun onPasswordChanged(password: String) {
         form.password = password
     }
 
-    fun onFacebookButtonClicked() {}
-
-    fun onGoogleButtonClicked() {}
-
-    fun onRecoverPasswordClicked() {
-        goTo(RecoverPasswordNavData())
-    }
-
-    fun onSignUpClicked() {
-        goTo(SignUpNavData())
-    }
-
     fun onSubmitClicked() {
         form.useForm(this::submit)?.let { showFieldErrors(it) }
     }
 
-    private fun submit(email: String, password: String) {
+    private fun submit(username: String, password: String) {
         signInDisposable?.dispose()
-        signInDisposable = signIn.default(email, password, null)
+        signInDisposable = signIn.default(username, password, null)
                 .defaultPlaceholders(this::setPlaceholder)
                 .defaultSched(schedulerProvider)
-                .subscribeBy(this::onFailure) {
-                    showEmailFieldErrorLiveData.value = false
+                .subscribeBy(::onFailure) {
+                    showUsernameFieldErrorLiveData.value = false
                     showPasswordFieldErrorLiveData.value = false
                     goToMainLiveData.value = true
                 }
@@ -83,7 +69,7 @@ class LoginViewModel(
 
     private fun showFieldError(field: Int) {
         when (field) {
-            InvalidFieldsException.EMAIL -> showEmailFieldErrorLiveData.value = true
+            InvalidFieldsException.USERNAME -> showUsernameFieldErrorLiveData.value = true
             InvalidFieldsException.PASSWORD -> showPasswordFieldErrorLiveData.value = true
         }
     }

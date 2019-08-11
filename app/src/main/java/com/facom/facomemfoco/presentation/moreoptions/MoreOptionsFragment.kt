@@ -46,6 +46,8 @@ class MoreOptionsFragment : BaseFragment() {
         with(viewModel) {
             goToAbout.observeEvent(this@MoreOptionsFragment, ::onGoTo)
             goToHelp.observeEvent(this@MoreOptionsFragment, ::onGoTo)
+            goToLogin.observeEvent(this@MoreOptionsFragment, ::onGoTo)
+            goToInterestTags.observeEvent(this@MoreOptionsFragment, ::onGoTo)
         }
     }
 
@@ -57,6 +59,8 @@ class MoreOptionsFragment : BaseFragment() {
         with(binding) {
             buttonAbout.onClickListener(viewModel::goToAbout)
             buttonHelp.onClickListener(viewModel::goToHelp)
+            buttonLogin.onClickListener(viewModel::goToLogin)
+            buttonTags.onClickListener(viewModel::goToInterestTags)
         }
     }
 

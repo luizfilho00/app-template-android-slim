@@ -35,4 +35,6 @@
     <!-- colors -->
     <color name="colorLightGray">#F5F5F5</color>
     <color name="colorDarkGray">#4d4d4d</color>
+    <color name="colorBlue">#03A9F4</color>
+    <color name="colorDarkBlue">#357599</color>
 </resources>

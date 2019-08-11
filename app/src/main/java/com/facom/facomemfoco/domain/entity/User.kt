@@ -5,6 +5,7 @@ import java.io.Serializable
 data class User(
     var id: String? = null,
     var name: String? = null,
+    var username: String? = null,
     var phone: String? = null,
     var email: String? = null,
     var token: String? = null,

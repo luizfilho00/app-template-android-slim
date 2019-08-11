@@ -20,5 +20,6 @@ class InvalidFieldsException : Exception() {
         val CPF = 4
         val PASSWORD = 5
         val PASSWORD_CONFIRMATION = 6
+        val USERNAME = 7
     }
 }

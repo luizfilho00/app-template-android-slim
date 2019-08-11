@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/included_toolbar"
+            layout="@layout/toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/BigBoldDarkGrayText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_interest_tags_header" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/colorLightGray" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/ButtonDefaultStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:paddingTop="@dimen/padding_default"
+                android:paddingBottom="@dimen/padding_default"
+                android:text="@string/activity_interest_tags_save"
+                android:theme="@style/AppButtonTheme" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

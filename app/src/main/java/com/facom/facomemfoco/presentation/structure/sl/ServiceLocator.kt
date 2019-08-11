@@ -16,6 +16,7 @@ import com.facom.facomemfoco.domain.interactor.user.SignIn
 import com.facom.facomemfoco.domain.interactor.user.SignUp
 import com.facom.facomemfoco.presentation.about.AboutViewModel
 import com.facom.facomemfoco.presentation.help.HelpViewModel
+import com.facom.facomemfoco.presentation.interesttags.InterestTagsViewModel
 import com.facom.facomemfoco.presentation.landing.SplashViewModel
 import com.facom.facomemfoco.presentation.login.LoginViewModel
 import com.facom.facomemfoco.presentation.main.MainViewModel
@@ -99,6 +100,7 @@ class DefaultServiceLocator(private val context: Context) : ServiceLocator {
             NewsForYouViewModel::class.java -> NewsForYouViewModel(schedulerProvider)
             NewsAllViewModel::class.java -> NewsAllViewModel(schedulerProvider)
             HelpViewModel::class.java -> HelpViewModel(schedulerProvider)
+            InterestTagsViewModel::class.java -> InterestTagsViewModel(schedulerProvider)
             RecoverPasswordViewModel::class.java -> RecoverPasswordViewModel(
                     get(RecoverPassword::class.java),
                     schedulerProvider,

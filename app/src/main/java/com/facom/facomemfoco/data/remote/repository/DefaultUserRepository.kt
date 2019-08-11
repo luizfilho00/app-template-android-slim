@@ -15,8 +15,8 @@ class DefaultUserRepository(private val cache: Cache) : UserRepository {
         TODO("Not implemented")
     }
 
-    override fun signIn(email: String, password: String, token: String?): Single<User> {
-        return ApiClient.signIn(email, password, token).map(ApiUser.ApiUserToUserMapper::transform)
+    override fun signIn(username: String, password: String, token: String?): Single<User> {
+        return ApiClient.signIn(username, password, token).map(ApiUser.ApiUserToUserMapper::transform)
     }
 
     override fun signInWithFacebook(): Single<User> {

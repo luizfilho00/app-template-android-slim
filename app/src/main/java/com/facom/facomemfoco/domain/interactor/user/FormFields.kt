@@ -10,6 +10,8 @@ class FormFields {
         private set
     var email: String? = null
         private set
+    var username: String? = null
+        private set
     var phoneNumber: String? = null
         private set
     var cpf: String? = null
@@ -30,6 +32,8 @@ class FormFields {
     private fun isCpfValid(): Boolean = cpf != null && cpf!!.matches(CPF_PATTERN)
 
     private fun isPasswordValid(): Boolean = password != null && !password!!.isEmpty()
+
+    private fun isUsernameValid(): Boolean = username != null && !username!!.isEmpty()
 
     private fun isPasswordConfirmationValid(): Boolean = if (passwordConfirmation == null) password == null else passwordConfirmation == password
 
@@ -69,6 +73,12 @@ class FormFields {
     fun withPassword(password: String): FormFields {
         this.password = password
         updateField(InvalidFieldsException.PASSWORD, isPasswordValid())
+        return this
+    }
+
+    fun withUsername(username: String): FormFields {
+        this.username = username
+        updateField(InvalidFieldsException.USERNAME, isUsernameValid())
         return this
     }
 

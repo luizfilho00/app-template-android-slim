@@ -19,13 +19,12 @@
     <string name="validation_cpf">CPF inválido</string>
     <string name="validation_password">Senha inválida</string>
     <string name="validation_password_confirmation">Confirmação diferente da senha</string>
-    <string name="activity_login_sign_in_with">Faça login com</string>
     <string name="global_facebook">Facebook</string>
     <string name="global_google">Google</string>
     <string name="global_or">Ou</string>
     <string name="global_yes">Sim</string>
     <string name="global_no">Não</string>
-    <string name="hint_user_or_email">Usuário ou email</string>
+    <string name="hint_username">Usuário</string>
     <string name="hint_password">Senha</string>
     <string name="activity_login_sign_in">Entrar</string>
     <string name="activity_login_sign_up">Criar uma conta</string>
@@ -45,7 +44,7 @@
     <string name="activity_recover_password_success">Verifique a sua caixa de entrada e siga as instruções do email para recuperar sua senha.</string>
     <string name="error_facebook_sdk">O Facebook não nos devolveu nenhuma informação para realizar o login. Por favor, tente novamente.</string>
     <string name="error_facebook_denied_permissions">É necessário aceitar todas as permissões no Facebook para realizar o login. Por favor, tente novamente.</string>
-    <string name="error_invalid_email">Email Inválido</string>
+    <string name="error_invalid_username">Usuário Inválido</string>
     <string name="error_invalid_password">Senha Inválida</string>
     <string name="global_send">Enviar</string>
     <string name="global_pick_avatar_using">Escolher imagem usando:</string>
@@ -75,6 +74,19 @@
     <string name="activity_help_login_text">Apenas professores cadastrados podem realizar login.  Quando ele está logado, uma nova opção aparece “Seus posts”, onde serão listados todos os posts realizados pelo professor logado e um botão (+) que permite a criação de uma nova notícia</string>
     <string name="activity_help_news_title">Criar Notícia</string>
     <string name="activity_help_news_text">Uma notícia deve obrigatoriamente ter um título e deve ter ao menos uma descrição, link ou imagem. Ela também deve ter obrigatoriamente uma tag de interesse. Somentes usuários logados podem criar uma notícia.</string>
+
+    <!-- Activity Login -->
+    <string name="activity_login_title">Entrar</string>
+    <string name="activity_login_facom_text">Facom em Foco</string>
+    <string name="activity_login_username">Nome de usuário</string>
+    <string name="activity_login_password">Senha</string>
+    <string name="activity_login_alert_username">Por favor digite seu nome de usuário</string>
+    <string name="activity_login_alert_password">Por favor digite sua senha</string>
+
+    <!-- Activity Interest Tags -->
+    <string name="activity_interest_tags_title">Suas tags de interesse</string>
+    <string name="activity_interest_tags_header">Marque as tags de notícias que deseja ser notificado</string>
+    <string name="activity_interest_tags_save">Salvar</string>
 
     <!-- Fragment News For You -->
     <string name="fragment_for_you_title">Notícias para você</string>

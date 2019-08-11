@@ -6,15 +6,11 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.facom.facomemfoco.R
 import com.facom.facomemfoco.databinding.ActivityLoginBinding
-import com.facom.facomemfoco.domain.extensions.then
 import com.facom.facomemfoco.presentation.structure.base.BaseActivity
 import com.facom.facomemfoco.presentation.structure.base.BaseViewModel
 import com.facom.facomemfoco.presentation.structure.navigation.Navigator
 import com.facom.facomemfoco.presentation.structure.sl.ServiceLocator
-import com.facom.facomemfoco.presentation.util.extensions.observe
-import com.facom.facomemfoco.presentation.util.extensions.observeChanges
-import com.facom.facomemfoco.presentation.util.extensions.setError
-import com.facom.facomemfoco.presentation.util.extensions.setOnClickListener
+import com.facom.facomemfoco.presentation.util.extensions.*
 
 class LoginActivity : BaseActivity() {
 
@@ -28,41 +24,41 @@ class LoginActivity : BaseActivity() {
         viewModel = sl.get(LoginViewModel::class.java)
         lifecycle.addObserver(viewModel)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        setupToolbar(binding.includedToolbar.toolbar, true, getString(R.string.activity_login_title))
         setupUi()
         super.onCreate(savedInstanceState)
     }
 
     override fun subscribeUi() {
         super.subscribeUi()
-        viewModel.showEmailFieldError.observe(this, this::onNextEmailError)
-        viewModel.showPasswordFieldError.observe(this, this::onNextPasswordError)
-        viewModel.goToMain.observe(this, this::onNextGoToMain)
+        with(viewModel){
+            showUsernameFieldError.observe(this@LoginActivity, ::onNextUsernameError)
+            showPasswordFieldError.observe(this@LoginActivity, ::onNextPasswordError)
+            goToMain.observe(this@LoginActivity, ::onNextGoToMain)
+        }
     }
 
     private fun setupUi() {
-        binding.emailInput.observeChanges(viewModel::onEmailChanged)
-        binding.passwordInput.observeChanges(viewModel::onPasswordChanged)
-        binding.facebookButton.setOnClickListener(viewModel::onFacebookButtonClicked)
-        binding.googleButton.setOnClickListener(viewModel::onGoogleButtonClicked)
-        binding.recoverPasswordButton.setOnClickListener(viewModel::onRecoverPasswordClicked)
-        binding.registerButton.setOnClickListener(viewModel::onSignUpClicked)
-        binding.submitButton.setOnClickListener(viewModel::onSubmitClicked)
+        with(binding){
+            usernameInput.observeChanges(viewModel::onUsernameChanged)
+            passwordInput.observeChanges(viewModel::onPasswordChanged)
+            submitButton.setOnClickListener(viewModel::onSubmitClicked)
+        }
     }
 
     private fun onNextGoToMain(shouldGo: Boolean?) {
         shouldGo?.let { Navigator.goToMain(this, true) }
     }
 
-    private fun onNextEmailError(shouldShowError: Boolean?) {
+    private fun onNextUsernameError(shouldShowError: Boolean?) {
         shouldShowError?.let {
-            binding.emailInput.setError(it then R.string.error_invalid_email)
+            shortToast(R.string.activity_login_alert_username)
         }
     }
 
     private fun onNextPasswordError(shouldShowError: Boolean?) {
         shouldShowError?.let {
-            binding.passwordInput.setError(it then R.string.error_invalid_password)
-
+            shortToast(R.string.activity_login_alert_password)
         }
     }
 

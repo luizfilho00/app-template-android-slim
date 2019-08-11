@@ -57,7 +57,7 @@
                 android:layout_width="80dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:src="@drawable/grafo_facom"
+                android:src="@drawable/facom_graph"
                 tools:ignore="ContentDescription" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
