@@ -10,6 +10,7 @@ import com.facom.facomemfoco.domain.boundary.resources.Cache
 import com.facom.facomemfoco.domain.boundary.resources.Logger
 import com.facom.facomemfoco.domain.boundary.resources.SchedulerProvider
 import com.facom.facomemfoco.domain.boundary.resources.StringsProvider
+import com.facom.facomemfoco.domain.interactor.tags.GetAllTags
 import com.facom.facomemfoco.domain.interactor.user.GetPersistedUser
 import com.facom.facomemfoco.domain.interactor.user.RecoverPassword
 import com.facom.facomemfoco.domain.interactor.user.SignIn
@@ -88,6 +89,7 @@ class DefaultServiceLocator(private val context: Context) : ServiceLocator {
             SignIn::class.java -> SignIn(get(UserRepository::class.java))
             SignUp::class.java -> SignUp(get(UserRepository::class.java))
             RecoverPassword::class.java -> RecoverPassword(get(UserRepository::class.java))
+            GetAllTags::class.java -> GetAllTags()
 
             /***
              * ViewModels
@@ -100,7 +102,7 @@ class DefaultServiceLocator(private val context: Context) : ServiceLocator {
             NewsForYouViewModel::class.java -> NewsForYouViewModel(schedulerProvider)
             NewsAllViewModel::class.java -> NewsAllViewModel(schedulerProvider)
             HelpViewModel::class.java -> HelpViewModel(schedulerProvider)
-            InterestTagsViewModel::class.java -> InterestTagsViewModel(schedulerProvider)
+            InterestTagsViewModel::class.java -> InterestTagsViewModel(schedulerProvider, get(GetAllTags::class.java))
             RecoverPasswordViewModel::class.java -> RecoverPasswordViewModel(
                     get(RecoverPassword::class.java),
                     schedulerProvider,
