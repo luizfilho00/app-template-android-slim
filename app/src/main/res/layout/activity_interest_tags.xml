@@ -32,19 +32,19 @@
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
                 app:layout_constraintBottom_toTopOf="@+id/button_save"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_view_header"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_marginBottom="@dimen/activity_vertical_margin">
+                app:layout_constraintTop_toBottomOf="@id/text_view_header">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view_tags"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="@drawable/border_white_rounded"
-                android:backgroundTint="@color/colorLightGray" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_tags"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@drawable/border_white_rounded"
+                    android:backgroundTint="@color/colorLightGray" />
             </androidx.core.widget.NestedScrollView>
 
             <com.google.android.material.button.MaterialButton

@@ -25,8 +25,10 @@ class AndroidStringProvider(context: Context) : StringsProvider {
     override val errorServerInternal: String get() = res(R.string.error_server_internal)
     override val errorTimeout: String get() = res(R.string.error_timeout)
     override val waitForResult: String get() = res(R.string.global_wait)
+
     override val activityRecoverPassword: String get() = res(R.string.activity_recover_password)
     override val activityRecoverPasswordSuccess: String get() = res(R.string.activity_recover_password_success)
+    override val activityInterestTagsSaved: String get() = res(R.string.activity_interest_tags_save_success)
 
     override fun errorUnprocessable(errors: String): String = context.getString(R.string.error_unprocessable, errors)
 

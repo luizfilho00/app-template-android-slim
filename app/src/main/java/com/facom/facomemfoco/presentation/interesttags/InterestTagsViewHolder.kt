@@ -18,7 +18,7 @@ class InterestTagsViewHolder(
     fun setupBinding(tag: Tag) {
         with(binding) {
             linearLayoutItemTag.setOnClickListener { handleTagClicked(tag, it) }
-            textViewHolderTag.text = tag.name
+            itemTag = tag
         }
     }
 

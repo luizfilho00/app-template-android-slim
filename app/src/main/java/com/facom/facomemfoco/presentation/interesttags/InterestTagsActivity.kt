@@ -12,6 +12,7 @@ import com.facom.facomemfoco.presentation.structure.base.BaseActivity
 import com.facom.facomemfoco.presentation.structure.base.BaseViewModel
 import com.facom.facomemfoco.presentation.structure.sl.ServiceLocator
 import com.facom.facomemfoco.presentation.util.extensions.observeEvent
+import com.facom.facomemfoco.presentation.util.extensions.setOnClickListener
 import com.facom.facomemfoco.presentation.util.extensions.setupToolbar
 
 class InterestTagsActivity : BaseActivity() {
@@ -42,7 +43,9 @@ class InterestTagsActivity : BaseActivity() {
     }
 
     private fun setupUi() {
-        //TODO
+        with(binding) {
+            buttonSave.setOnClickListener(viewModel::updateCache)
+        }
     }
 
     private fun setupAdapter() {

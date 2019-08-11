@@ -87,6 +87,7 @@
     <string name="activity_interest_tags_title">Suas tags de interesse</string>
     <string name="activity_interest_tags_header">Marque as tags de notícias que deseja ser notificado</string>
     <string name="activity_interest_tags_save">Salvar</string>
+    <string name="activity_interest_tags_save_success">Suas preferências foram salvas com sucesso!</string>
 
     <!-- Fragment News For You -->
     <string name="fragment_for_you_title">Notícias para você</string>

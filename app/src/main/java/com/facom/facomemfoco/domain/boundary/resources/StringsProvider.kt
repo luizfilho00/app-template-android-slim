@@ -17,8 +17,10 @@ interface StringsProvider {
     val errorServerInternal: String
     val errorTimeout: String
     val waitForResult: String
+
     val activityRecoverPassword: String
     val activityRecoverPasswordSuccess: String
+    val activityInterestTagsSaved: String
 
     fun errorUnprocessable(errors: String): String
 }

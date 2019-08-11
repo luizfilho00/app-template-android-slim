@@ -3,14 +3,17 @@
 package com.facom.facomemfoco.presentation.structure.sl
 
 import android.content.Context
+import com.facom.facomemfoco.data.remote.repository.DefaultTagRepository
 import com.facom.facomemfoco.data.remote.repository.DefaultUserRepository
 import com.facom.facomemfoco.data.storage.PreferencesCache
+import com.facom.facomemfoco.domain.boundary.TagRepository
 import com.facom.facomemfoco.domain.boundary.UserRepository
 import com.facom.facomemfoco.domain.boundary.resources.Cache
 import com.facom.facomemfoco.domain.boundary.resources.Logger
 import com.facom.facomemfoco.domain.boundary.resources.SchedulerProvider
 import com.facom.facomemfoco.domain.boundary.resources.StringsProvider
 import com.facom.facomemfoco.domain.interactor.tags.GetAllTags
+import com.facom.facomemfoco.domain.interactor.tags.PersistTags
 import com.facom.facomemfoco.domain.interactor.user.GetPersistedUser
 import com.facom.facomemfoco.domain.interactor.user.RecoverPassword
 import com.facom.facomemfoco.domain.interactor.user.SignIn
@@ -81,6 +84,7 @@ class DefaultServiceLocator(private val context: Context) : ServiceLocator {
              * Repositories
              ***/
             UserRepository::class.java -> DefaultUserRepository(cache)
+            TagRepository::class.java -> DefaultTagRepository(cache)
 
             /***
              * Interactors
@@ -89,7 +93,8 @@ class DefaultServiceLocator(private val context: Context) : ServiceLocator {
             SignIn::class.java -> SignIn(get(UserRepository::class.java))
             SignUp::class.java -> SignUp(get(UserRepository::class.java))
             RecoverPassword::class.java -> RecoverPassword(get(UserRepository::class.java))
-            GetAllTags::class.java -> GetAllTags()
+            GetAllTags::class.java -> GetAllTags(get(TagRepository::class.java))
+            PersistTags::class.java -> PersistTags(get(TagRepository::class.java))
 
             /***
              * ViewModels
@@ -102,7 +107,12 @@ class DefaultServiceLocator(private val context: Context) : ServiceLocator {
             NewsForYouViewModel::class.java -> NewsForYouViewModel(schedulerProvider)
             NewsAllViewModel::class.java -> NewsAllViewModel(schedulerProvider)
             HelpViewModel::class.java -> HelpViewModel(schedulerProvider)
-            InterestTagsViewModel::class.java -> InterestTagsViewModel(schedulerProvider, get(GetAllTags::class.java))
+            InterestTagsViewModel::class.java -> InterestTagsViewModel(
+                    schedulerProvider,
+                    get(GetAllTags::class.java),
+                    get(PersistTags::class.java),
+                    get(StringsProvider::class.java)
+            )
             RecoverPasswordViewModel::class.java -> RecoverPasswordViewModel(
                     get(RecoverPassword::class.java),
                     schedulerProvider,

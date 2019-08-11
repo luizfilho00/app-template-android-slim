@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item_tag"
+            type="com.facom.facomemfoco.domain.entity.Tag" />
+    </data>
 
     <LinearLayout
         android:id="@+id/linear_layout_item_tag"
@@ -10,7 +18,8 @@
         android:clickable="true"
         android:focusable="true"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:toggleSelectedItemColor="@{item_tag.selected}">
 
         <TextView
             android:id="@+id/text_view_holder_tag"
@@ -19,6 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@{item_tag.name}"
             tools:text="ESTÁGIO" />
     </LinearLayout>
 </layout>
