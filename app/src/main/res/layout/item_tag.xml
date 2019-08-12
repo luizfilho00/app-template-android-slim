@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View" />
         <variable
             name="item_tag"
             type="com.facom.facomemfoco.domain.entity.Tag" />
     </data>
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/linear_layout_item_tag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,8 +18,21 @@
         android:clickable="true"
         android:focusable="true"
         android:gravity="center_horizontal"
-        android:orientation="vertical"
+        android:orientation="horizontal"
+        tools:background="@color/colorDarkBlue"
         app:toggleSelectedItemColor="@{item_tag.selected}">
+
+        <ImageView
+            android:id="@+id/image_view_checked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_checked"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            tools:visibility="visible"
+            android:translationZ="2dp"
+            android:visibility="@{item_tag.selected ? View.VISIBLE : View.GONE}"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/text_view_holder_tag"
@@ -27,8 +40,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:text="@{item_tag.name}"
+            app:toggleFontColor="@{item_tag.selected}"
+            tools:textColor="@color/white"
             tools:text="ESTÁGIO" />
-    </LinearLayout>
+    </FrameLayout>
 </layout>

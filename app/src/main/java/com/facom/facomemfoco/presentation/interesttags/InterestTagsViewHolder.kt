@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.facom.facomemfoco.R
 import com.facom.facomemfoco.databinding.ItemTagBinding
 import com.facom.facomemfoco.domain.entity.Tag
+import com.facom.facomemfoco.presentation.util.bindingadapter.toggleFontColor
 import com.facom.facomemfoco.presentation.util.bindingadapter.toggleSelectedItemColor
+import com.facom.facomemfoco.presentation.util.extensions.setVisible
 
 class InterestTagsViewHolder(
         private var binding: ItemTagBinding,
@@ -17,15 +19,20 @@ class InterestTagsViewHolder(
 
     fun setupBinding(tag: Tag) {
         with(binding) {
-            linearLayoutItemTag.setOnClickListener { handleTagClicked(tag, it) }
+            linearLayoutItemTag.setOnClickListener { handleTagClicked(tag) }
             itemTag = tag
         }
     }
 
-    private fun handleTagClicked(tag: Tag, view: View) {
+    private fun handleTagClicked(tag: Tag) {
         with(tag) {
             selected = !selected
-            view.toggleSelectedItemColor(selected)
+            with(binding) {
+                linearLayoutItemTag.toggleSelectedItemColor(selected)
+                textViewHolderTag.toggleSelectedItemColor(selected)
+                textViewHolderTag.toggleFontColor(selected)
+                imageViewChecked.setVisible(selected)
+            }
             onItemSelectedCallback.invoke(this)
         }
     }
